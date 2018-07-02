@@ -10,6 +10,10 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hbm2ddl.auto">create</property>
+        <!-- 1. update = it will create the table if it doesn't exist and add the rrcords
+        or it will simply add the record in the existing table
+        2. create = it will drop the table if its exists and create the table whenever you
+        run the program -->
         <property name="show_sql">true</property>
     </session-factory>
 </hibernate-configuration>
