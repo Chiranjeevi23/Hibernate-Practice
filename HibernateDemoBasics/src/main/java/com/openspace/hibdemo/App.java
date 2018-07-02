@@ -7,10 +7,15 @@ import org.hibernate.cfg.Configuration;
 
 public class App {
 	public static void main(String[] args) {
+		AlienName an = new AlienName();
+		an.setFname("Nallgs");
+		an.setLname("Chiru");
+		an.setMname("Lakshman");
+		
 		Alien a = new Alien();
 		a.setAid(102);
-		a.setAname("hello");
 		a.setAcolor("crimson");
+		a.setAname(an);
 
 		Configuration cfg = new Configuration().configure().addAnnotatedClass(Alien.class);
 		SessionFactory sf = cfg.buildSessionFactory();
@@ -18,10 +23,10 @@ public class App {
 
 		Transaction tx = session.beginTransaction();
 		//fetching
-		a = session.get(Alien.class, 100);
+		//a = session.get(Alien.class, 100);
 		
 		//Saving
-		//session.save(a);
+		session.save(a);
 
 		tx.commit();
 		
