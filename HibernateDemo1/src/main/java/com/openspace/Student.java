@@ -10,33 +10,31 @@ import javax.persistence.ManyToMany;
 @Entity
 public class Student {
 	@Id
-	private int srollno;
-	private String sname;
-	private int smarks;	
+	private int rollno;
+	private String name;
+	private int marks;
 	
 	@ManyToMany(mappedBy="student")
 	private List<Laptop> laptop = new ArrayList<Laptop>();
 	
-	public int getSrollno() {
-		return srollno;
+	public int getRollno() {
+		return rollno;
 	}
-	public void setSrollno(int srollno) {
-		this.srollno = srollno;
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
 	}
-	public String getSname() {
-		return sname;
+	public String getName() {
+		return name;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public int getSmarks() {
-		return smarks;
+	public int getMarks() {
+		return marks;
 	}
-	public void setSmarks(int smarks) {
-		this.smarks = smarks;
+	public void setMarks(int marks) {
+		this.marks = marks;
 	}
-	
-	
 	public List<Laptop> getLaptop() {
 		return laptop;
 	}
@@ -44,10 +42,11 @@ public class Student {
 		this.laptop = laptop;
 	}
 	
-	@Override
-	public String toString() {
-		return "Student [srollno=" + srollno + ", sname=" + sname + ", smarks=" + smarks + "]";
-	}
+	
+	
+	
+	
+	
 	
 	
 }

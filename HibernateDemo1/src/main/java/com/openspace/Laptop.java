@@ -11,10 +11,11 @@ import javax.persistence.ManyToMany;
 public class Laptop {
 	@Id
 	private int lid;
-	private String lname;
+	private String brand;
 	
 	@ManyToMany
 	private List<Student> student = new ArrayList<Student>();
+		
 	
 	public List<Student> getStudent() {
 		return student;
@@ -28,17 +29,12 @@ public class Laptop {
 	public void setLid(int lid) {
 		this.lid = lid;
 	}
-	public String getLname() {
-		return lname;
+	public String getBrand() {
+		return brand;
 	}
-	public void setLname(String lname) {
-		this.lname = lname;
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
-	@Override
-	public String toString() {
-		return "Laptop [lid=" + lid + ", lname=" + lname + "]";
-	}
-	
-	
+		
 
 }

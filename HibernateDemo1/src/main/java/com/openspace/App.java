@@ -10,12 +10,12 @@ public class App
     {
     	Laptop laptop = new Laptop();
     	laptop.setLid(100);
-    	laptop.setLname("Dell");    	
-    	
+    	laptop.setBrand("Dell"); 
+    	    	
     	Student student = new Student();
-    	student.setSname("Chiru");
-    	student.setSrollno(4029);
-    	student.setSmarks(77);
+    	student.setName("Chiru");
+    	student.setRollno(4029);
+    	student.setMarks(77); 
     	student.getLaptop().add(laptop);
     	laptop.getStudent().add(student);
     	
@@ -28,6 +28,7 @@ public class App
        
        session.save(laptop);
        session.save(student);
+      
        
        session.getTransaction().commit();
        
