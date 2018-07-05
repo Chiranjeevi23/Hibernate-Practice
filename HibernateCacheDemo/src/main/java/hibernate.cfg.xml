@@ -14,10 +14,10 @@
         or it will simply add the record in the existing table
         2. create = it will drop the table if its exists and create the table whenever you
         run the program -->
-        <property name="show_sql">true</property>
-        
+        <property name="show_sql">true</property>        
         <!-- we need to mention that you are using second level cache. -->
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
     </session-factory>
 </hibernate-configuration>

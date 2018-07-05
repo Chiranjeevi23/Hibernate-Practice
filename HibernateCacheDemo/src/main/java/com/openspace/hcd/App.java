@@ -1,8 +1,8 @@
 package com.openspace.hcd;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 /*By default it will fetch from 
@@ -30,18 +30,23 @@ public class App {
 		SessionFactory sf = cfg.buildSessionFactory();
 		
 		Session session1 = sf.openSession();
-		session1.beginTransaction();
-		
+		session1.beginTransaction();		
 		//Saving
 		//session1.save(a); //before fetching we need to save it		
-		a = session1.get(Alien.class, 101); //fetching by id
+		//a = session1.get(Alien.class, 101); //fetching by id
+		Query q1 = session1.createQuery("from Alien where aid=101"); //using our own query method
+		q1.setCacheable(true);
+		a = (Alien)q1.uniqueResult();
 		System.out.println(a);
 		session1.getTransaction().commit();
 		
 		
 		Session session2 = sf.openSession();
 		session2.beginTransaction();
-		a = session2.get(Alien.class, 101); //fetching by id
+		//a = session2.get(Alien.class, 101); //fetching by id
+		Query q2 = session2.createQuery("from Alien where aid=101"); // using our own query method
+		q2.setCacheable(true);
+		a = (Alien)q2.uniqueResult();
 		System.out.println(a);		
 		session2.getTransaction().commit();	
 		
