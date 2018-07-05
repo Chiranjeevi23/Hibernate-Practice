@@ -20,9 +20,9 @@ public class App {
 		Configuration cfg = new Configuration().configure().addAnnotatedClass(Alien.class);
 		SessionFactory sf = cfg.buildSessionFactory();
 		Session session = sf.openSession();
-
 		Transaction tx = session.beginTransaction();
-		//fetching
+		
+		//fetching by id
 		//a = session.get(Alien.class, 100);
 		
 		//Saving

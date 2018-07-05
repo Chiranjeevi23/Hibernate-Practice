@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">admin123</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/chiru</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 1. update = it will create the table if it doesn't exist and add the records
+        or it will simply add the record in the existing table
+        2. create = it will drop the table if its exists and create the table whenever you
+        run the program -->
+        <property name="show_sql">true</property>
+        
+        <!-- we need to mention that you are using second level cache. -->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+    </session-factory>
+</hibernate-configuration>
