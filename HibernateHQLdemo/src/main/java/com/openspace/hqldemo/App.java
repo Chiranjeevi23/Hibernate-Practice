@@ -1,5 +1,7 @@
 package com.openspace.hqldemo;
 
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,6 +14,7 @@ public class App
         Configuration cfg = new Configuration().configure().addAnnotatedClass(Student.class);
         SessionFactory sf = cfg.buildSessionFactory();
         Session session = sf.openSession();
+      
         session.beginTransaction();       
         /* Random r = new Random();
         for (int i=1; i<=(25); i++) {
@@ -34,12 +37,13 @@ public class App
         Student student = (Student) q2.uniqueResult();
         System.out.println(student);*/
          
-        Query q = session.createQuery("select rollno,name,marks from Student where rollno=24");
-        Object[] student = (Object[]) q.uniqueResult();
-        /*for(Object o : student) {
-        	System.out.println(o);
-        }*/        
-        System.out.println(student[0] + " : " + student[1] + " : " + student[2]);
+        //Query q = session.createQuery("select rollno,name,marks from Student s where s.marks > 60");
+        int b = 60;
+        Query q = session.createQuery("select sum(marks) from Student s where s.marks > :b");
+        q.setParameter("b", b);
+        Long marks = (Long) q.uniqueResult();
+        System.out.println(marks);      
+        
         
         session.getTransaction().commit();        
        
