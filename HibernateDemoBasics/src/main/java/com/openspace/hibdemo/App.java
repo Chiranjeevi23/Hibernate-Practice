@@ -23,10 +23,19 @@ public class App {
 		Transaction tx = session.beginTransaction();
 		
 		//fetching by id
-		//a = session.get(Alien.class, 100);
-		
+		/*get vs load method: 
+		 * get method:- will hit the db even when you dont want to use the object, 
+		 * lets say u want to print that object. 
+		 * - get will give you "null" if it wont find any object
+		 *load method :- it is same as get method but the difference is
+		 *it wont hit the db when you run the code it only hit the db when
+		 *you want to use the object lets say print that object
+		 *load will give you a proxy object i.e fake object 
+		 *- load will give you an exception named object not found exception*/
+		a = session.get(Alien.class, 102);	
+		System.out.println(a);
 		//Saving
-		session.save(a);
+		//session.save(a);
 
 		tx.commit();
 		
